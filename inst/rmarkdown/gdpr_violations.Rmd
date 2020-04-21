@@ -1,0 +1,38 @@
+---
+title: '#TidyTuesday 21 April 2020: GDPR Violations'
+author: "Jim Kloet"
+date: "4/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE,
+                      error = FALSE)
+```
+
+## Get the data
+
+First, get the tidy data from github.
+
+```{r}
+# Get the Data
+library(tidyverse)
+
+gdpr_violations <- read_tsv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_violations.tsv')
+
+gdpr_text <- read_tsv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-04-21/gdpr_text.tsv')
+
+View(as.data.frame(table(gdpr_violations$article_violated)))
+
+```
+
+## Who are the biggest offenders?
+
+The entity who broke the rule is in `gdpr_violations$controller`. There are `r length(unique(gdpr_violations$controller))` so some recoding might be necessary.
+
+```{r}
+
+```
+
